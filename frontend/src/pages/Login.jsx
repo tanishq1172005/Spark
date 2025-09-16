@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import axiosInstance from "@/utils/axiosInstance"
 import { API_PATHS } from "@/utils/apiPath"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { UserContext } from "../context/userContext"
 
 export default function Login() {
@@ -70,7 +70,7 @@ export default function Login() {
           </CardContent>
           <CardFooter className="justify-between">
             <p className="text-sm text-muted-foreground">New to Spark?</p>
-            <a href="/signup" className="text-sm font-medium text-primary hover:underline">Create account</a>
+            <Link to="/signup" className="text-sm font-medium text-primary hover:underline">Create account</Link>
           </CardFooter>
         </Card>
       </section>
