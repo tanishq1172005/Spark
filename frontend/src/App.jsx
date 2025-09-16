@@ -1,5 +1,5 @@
 import { BrowserRouter as Router,Routes,Route } from "react-router-dom"
-import UserProvider from "./context/UserContext"
+import UserProvider from "./context/userContext"
 import Landing from "./pages/Landing"
 import Signup from "./pages/Signup"
 import Login from "./pages/Login"
