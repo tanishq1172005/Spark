@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { UserContext } from "../context/userContext"
 import axiosInstance from "@/utils/axiosInstance"
 import { API_PATHS } from "@/utils/apiPath"
@@ -110,7 +110,7 @@ export default function Signup() {
           </CardContent>
           <CardFooter className="justify-between">
             <p className="text-sm text-muted-foreground">Already have an account?</p>
-            <a href="/login" className="text-sm font-medium text-primary hover:underline cursor-pointer">Log in</a>
+            <Link to="/login" className="text-sm font-medium text-primary hover:underline cursor-pointer">Log in</Link>
           </CardFooter>
         </Card>
       </section>
