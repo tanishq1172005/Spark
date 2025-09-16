@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Sparkles,LogIn, User } from "lucide-react"
 import { useNavigate } from "react-router-dom"
-import { UserContext } from "../context/UserContext"
+import { UserContext } from "../context/userContext"
 
 export default function Landing(){
   const navigate = useNavigate()
