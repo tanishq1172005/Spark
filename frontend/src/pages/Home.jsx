@@ -167,7 +167,7 @@ export default function Home(){
     {/* Floating composer */}
     <Dialog open={composerOpen} onOpenChange={setComposerOpen}>
       <DialogTrigger asChild>
-        <Button className="fixed bottom-6 right-6 h-14 w-14 rounded-full p-0 shadow-lg" aria-label="Create post">
+        <Button className="fixed bottom-6 right-8 h-14 w-14 bg-gray-300 rounded-full p-0 shadow-lg" aria-label="Create post">
           <Plus className="size-6" />
         </Button>
       </DialogTrigger>
