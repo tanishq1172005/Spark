@@ -19,6 +19,7 @@ export default function Home(){
   const [composerOpen, setComposerOpen] = useState(false)
 
   useEffect(()=>{
+    
     const fetchPosts = async()=>{
       const res = await axiosInstance.get(API_PATHS.POST.GET_POST)
       setPost(res.data)
@@ -90,11 +91,19 @@ export default function Home(){
     if (!name || typeof name !== "string") return "SP"
     return name.trim().split(/\s+/).map(p => p[0]).join("").toUpperCase().slice(0, 2)
   }
-  const imageSrc=(url)=> {
-    if(!url) return null; 
-    if(url.startsWith("http") || url.startsWith("data:")) return url; 
-    const normalized = url.startsWith("/") ? url : `/${url}`
-    return `${BASE_URL}${normalized}`
+  const imageSrc = (url) => {
+    if (!url) return null
+    const raw = String(url).trim()
+    if (/^https?:\/\//i.test(raw) || raw.startsWith("data:")) return raw
+    // Normalize Windows-style backslashes and strip common "public" prefixes
+    let path = raw.replace(/\\\\/g, "/").replace(/\\/g, "/")
+    path = path.replace(/^\.?\/?public\//i, "/")
+    if (!path.startsWith("/")) path = "/" + path
+    try {
+      return new URL(path, BASE_URL).toString()
+    } catch {
+      return `${BASE_URL.replace(/\/$/, "")}${path}`
+    }
   }
 
   const currentDisplayName = user?.name || user?.username || "User";
@@ -193,7 +202,7 @@ export default function Home(){
             </div>
           </div>
           <ModalFooter>
-            <Button type="submit" disabled={!text.trim()}>Post</Button>
+            <Button type="submit" className='cursor-pointer' disabled={!text.trim()}>Post</Button>
           </ModalFooter>
         </form>
       </DialogContent>
