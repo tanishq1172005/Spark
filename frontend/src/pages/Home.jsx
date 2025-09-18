@@ -162,7 +162,7 @@ export default function Home(){
                 <p className="whitespace-pre-wrap leading-relaxed">{post.text}</p>
               )}
               {imageSrc(post.imageUrl) && (
-                <img src={imageSrc(post.imageUrl)} alt="post" className="rounded-xl border object-cover max-h-[480px] w-full" loading="lazy" />
+                <img src={imageSrc(post.imageUrl)} alt="post" className="rounded-xl border object-cover max-h-[480px] w-full" loading="eager" />
               )}
             </CardContent>
             <CardFooter>
